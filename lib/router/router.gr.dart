@@ -7,6 +7,7 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
+import '../pages/anime_page.dart' as _i7;
 import '../pages/home_page.dart' as _i3;
 import '../pages/pagination_page.dart' as _i4;
 import '../pages/post_api_page.dart' as _i6;
@@ -37,20 +38,26 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i6.PostApiPage();
+        }),
+    AnimeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i7.AnimePage();
         })
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(HomeRoute.name, path: '/'),
+        _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
         _i1.RouteConfig(PaginationRoute.name, path: '/pagination-page'),
         _i1.RouteConfig(SocialShareRoute.name, path: '/social-share-page'),
-        _i1.RouteConfig(PostApiRoute.name, path: '/post-api-page')
+        _i1.RouteConfig(PostApiRoute.name, path: '/post-api-page'),
+        _i1.RouteConfig(AnimeRoute.name, path: '/')
       ];
 }
 
 class HomeRoute extends _i1.PageRouteInfo {
-  const HomeRoute() : super(name, path: '/');
+  const HomeRoute() : super(name, path: '/home-page');
 
   static const String name = 'HomeRoute';
 }
@@ -71,4 +78,10 @@ class PostApiRoute extends _i1.PageRouteInfo {
   const PostApiRoute() : super(name, path: '/post-api-page');
 
   static const String name = 'PostApiRoute';
+}
+
+class AnimeRoute extends _i1.PageRouteInfo {
+  const AnimeRoute() : super(name, path: '/');
+
+  static const String name = 'AnimeRoute';
 }
